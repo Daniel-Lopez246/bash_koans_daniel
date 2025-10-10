@@ -53,15 +53,21 @@ test_if_condition_with_variables() {
 
 test_multiple_if_conditions() {
 
+# Assigns 'zomg' to local variable 'test'
   local test='zomg' # __
 
+# Check if variable 'test' equals 'ok'
+# If true, assign 'no' to variable 'assert'
+# Else If, check if variable 'test' equals 'zomg'
+# If true, assign 'YES' to variable 'assert'
   if [ $test = 'ok' ]; then
     local assert='no'
   elif [ $test = 'zomg' ]; then
     local assert='YES'
   fi
 
-  assertEqual $assert __
+# This is verifying that 'assert' is 'YES', which confirms the if-elif condition executed correctly
+  assertEqual $assert 'YES'
 
 }
 

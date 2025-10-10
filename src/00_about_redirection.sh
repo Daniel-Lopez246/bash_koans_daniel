@@ -45,10 +45,16 @@ test_redirecting_stdout_to_stderr() {
 }
 
 test_redirecting_stderr_to_stdout() {
+  # The function 'output_stderr' just runs: printf "out to stderr" 1>&2
+  # '1>' redirects stdout to a file.
+  # '2>&1' redirects stderr to the same place as stdout.
+  # So both streams end up in tmp/redirect_test4.txt.
   output_stderr 1> tmp/redirect_test4.txt 2>&1
 
+  # Create local variable 'contents' and assign the contents of the file we just wrote to.
   local contents=$(cat tmp/redirect_test4.txt)
 
+  # The function should have written "out to stderr" to the file.
   assertEqual "$contents" "out to stderr"
 
 }

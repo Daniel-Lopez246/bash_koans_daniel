@@ -29,10 +29,15 @@ test_while_loops() {
 
 
 test_until_loops() {
+  # Declare a global variable named 'counter' and assigned 10
   counter=10
+  # The 'until' loop runs until the condition inside [ ] becomes true
+  # It keeps looping while counter is NOT less than 7
   until [ $counter -lt 7 ]; do
+    # Decrement counter by 1 each iteration
     (( counter-- ))
   done
 
+  # Loop exits when counter < 7 (first time this happens is when counter == 6)
   assertEqual $counter 6
 }

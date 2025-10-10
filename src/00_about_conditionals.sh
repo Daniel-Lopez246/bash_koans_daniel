@@ -35,14 +35,19 @@ test_if_condition_with_else() {
 }
 
 test_if_condition_with_variables() {
+# Assigns 'OMG' to local variable 'variable'
+# Assigns 'OMG' to local variable 'condition'
   local variable="OMG"
   local condition='OMG' #__
 
+# Check if variable 'variable' equals variable 'condition'
+# If true, assign 'ok' to variable 'assert'
   if [  "$variable" = "$condition" ]; then
     local assert='ok'
   fi
 
-  assertEqual $assert __
+# This is verifying that 'assert' is 'ok', which confirms the if condition executed correctly
+  assertEqual $assert 'ok'
 
 }
 

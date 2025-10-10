@@ -93,11 +93,14 @@ test_directory_if_conditions() {
 }
 
 test_file_if_conditions() {
+# Check if 'README.md' file exists
+# If true, assign 'yes' to 'assert'
   if [ -f README.md ]; then
     local assert='yes'
   fi
 
-  assertEqual $assert __
+# This is verifying that 'assert' is 'yes', which confirms the file existence check
+  assertEqual $assert 'yes'
 
 }
 

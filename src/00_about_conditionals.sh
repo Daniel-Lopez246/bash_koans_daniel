@@ -72,17 +72,23 @@ test_multiple_if_conditions() {
 }
 
 test_directory_if_conditions() {
+# Check if 'src' directory exists
+# If true, assign 'yes' to 'assert'
   if [ -d src ]; then
     local assert='yes'
   fi
 
-  assertEqual $assert __
+# This is verifying that 'assert' is 'yes', which confirms the directory existence check
+  assertEqual $assert 'yes'
 
+# Check if nonexistrnt directory does NOT exists
+# If true, assign 'no' to 'assert'
   if [ ! -d NOT_EXISTENT_DIR ]; then
     local assert='no'
   fi
 
-  assertEqual $assert __
+# This is verifying that 'assert' is 'no', which confirms the nondirectory existence check
+  assertEqual $assert 'no'
 
 }
 

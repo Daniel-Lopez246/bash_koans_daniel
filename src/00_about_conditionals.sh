@@ -18,15 +18,20 @@ test_if_condition() {
 
 test_if_condition_with_else() {
 
+# Assigns 'nope' to local variable 'test'
   local test='nope'
 
+# Check if variable 'test' equals 'ok'
+# If true, assign 'YES' to variable 'assert'
+# Else, assign 'NO' to variable 'assert'
   if [ $test == 'ok' ]; then
     local assert='YES'
   else
     local assert='NO'
   fi
 
-  assertEqual $assert __
+# This is verifying that 'assert' is 'NO', which confirms the if-else condition executed correctly
+  assertEqual $assert 'NO'
 }
 
 test_if_condition_with_variables() {

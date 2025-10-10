@@ -2,13 +2,17 @@ lesson_title "Conditions"
 
 test_if_condition() {
 
+# Assigns 'ok' to local variable 'test'
   local test='ok'
 
+# Check if variable 'test' equals 'ok'
+# If true, assign 'YES' to variable 'assert'
   if [ $test = 'ok' ]; then
     local assert='YES'
   fi
 
-  assertEqual $assert __
+# This is verifying that 'assert' is 'YES', which confirms the if condition executed correctly
+  assertEqual $assert 'YES'
 }
 
 
